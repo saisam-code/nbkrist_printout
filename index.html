@@ -135,15 +135,15 @@
         <form id="student-service-form">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="Name" required>
+                <input type="text" id="name" name="Name" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="whatsapp">WhatsApp Number</label>
-                <input type="tel" id="whatsapp" name="WhatsAppNumber" required>
+                <input type="tel" id="whatsapp" name="WhatsAppNumber" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="delivery">Delivery Address</label>
-                <select id="delivery" name="DeliveryAddress" required>
+                <select id="delivery" name="DeliveryAddress" required aria-required="true">
                     <option value="" disabled selected>Select Hostel/Pickup</option>
                     <option value="Pickup at Store">Pickup at Store</option>
                     <option value="Hostel A">Hostel A</option>
@@ -153,11 +153,11 @@
             </div>
             <div class="form-group">
                 <label for="pages">Number of Pages to Print</label>
-                <input type="number" id="pages" name="NumberOfPages" min="1" value="1" required>
+                <input type="number" id="pages" name="NumberOfPages" min="1" value="1" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="file-link">File Link (Google Drive or say "WhatsApp")</label>
-                <input type="text" id="file-link" name="FileLink" placeholder="e.g., https://drive.google.com/... or WhatsApp" required>
+                <input type="text" id="file-link" name="FileLink" placeholder="e.g., https://drive.google.com/... or WhatsApp" required aria-required="true">
             </div>
             
             <div class="form-group">
@@ -165,7 +165,7 @@
                     <input type="checkbox" id="spiral" name="SpiralBinding" value="Yes">
                     <label for="spiral">Spiral Binding? (+₹10)</label>
                 </div>
-                 <div class="checkbox-group">
+                <div class="checkbox-group">
                     <input type="checkbox" id="is-pdf" name="IsPDF" value="Yes">
                     <label for="is-pdf">Is it a PDF? (+₹5)</label>
                 </div>
@@ -218,7 +218,7 @@
 
             const formattedPrice = `₹${total}`;
             totalPriceElement.textContent = formattedPrice;
-            hiddenTotalCostInput.value = formattedPrice;
+            hiddenTotalCostInput.value = total; // Store the numeric value for submission
         }
 
         // Add event listeners to all inputs that affect the price
@@ -271,13 +271,4 @@
         });
     </script>
 </body>
-</html>```
-
-### **Final Step: Connect the Front-end to the Backend**
-
-1.  **Paste the URL**: In the `index.html` file, find the line:
-    `const scriptURL = 'PASTE_YOUR_WEB_APP_URL_HERE';`
-2.  **Replace the placeholder**: Replace `PASTE_YOUR_WEB_APP_URL_HERE` with the actual Web App URL you copied after deploying the Google Apps Script.
-3.  **Save the file**: Save your `index.html` file.
-
-You can now open the `index.html` file in your web browser. The form will be fully functional, calculating the price in real-time and sending submissions directly to your Google Sheet. Because it's a single HTML file with embedded styles and scripts, it is portable and can be hosted easily on any platform (like GitHub Pages, Netlify, or even just stored locally).
+</html>
